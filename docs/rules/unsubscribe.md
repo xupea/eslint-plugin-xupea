@@ -1,17 +1,36 @@
-# unsubscribe the events which are subscribed (unsubscribe)
+# 强制在componentWillUnmount方法中移除指定事件的监听器
 
-Please describe the origin of the rule here.
+检测在componentDidMount中添加了指定的时间监听器，而没有在componentWillUnmount中移除，从而导致监听器重复监听导致的问题
 
 
 ## Rule Details
-
-This rule aims to...
 
 Examples of **incorrect** code for this rule:
 
 ```js
 
-// fill me in
+class Test extends React.Component {
+  on() {
+    ...
+  }
+  off() {
+    ...
+  }
+
+  componentDidMount() {
+    this.on();
+    this.on();
+    this.on();
+  }
+
+  componentWillUnmount() {
+    this.off();
+  }
+
+  render() {
+    return null;
+  }
+}
 
 ```
 
@@ -19,7 +38,30 @@ Examples of **correct** code for this rule:
 
 ```js
 
-// fill me in
+class Test extends React.Component {
+  on() {
+    ...
+  }
+  off() {
+    ...
+  }
+
+  componentDidMount() {
+    this.on();
+    this.on();
+    this.on();
+  }
+
+  componentWillUnmount() {
+    this.off();
+    this.off();
+    this.off();
+  }
+
+  render() {
+    return null;
+  }
+}
 
 ```
 
@@ -27,10 +69,6 @@ Examples of **correct** code for this rule:
 
 If there are any options, describe them here. Otherwise, delete this section.
 
-## When Not To Use It
+## TODO
 
-Give a short description of when it would be appropriate to turn off this rule.
-
-## Further Reading
-
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.
+加入事件名称检测
