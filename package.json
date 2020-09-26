@@ -1,13 +1,14 @@
 {
-  "name": "eslint-plugin-unsubscribe",
+  "name": "eslint-plugin-xupea",
   "version": "0.0.0",
   "description": "sub and unsub should be paired",
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "xupea"
   ],
-  "author": "peter",
+  "author": "Peter Xu",
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests --recursive"
