@@ -19,12 +19,12 @@ $ npm install eslint-plugin-xupea --save-dev
 
 ## Usage
 
-Add `unsubscribe` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `xupea` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
     "plugins": [
-        "unsubscribe"
+        "xupea"
     ]
 }
 ```
@@ -35,7 +35,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "unsubscribe/rule-name": 2
+        "xupea/rule-name": 2
     }
 }
 ```
