@@ -10,10 +10,10 @@ You'll first need to install [ESLint](http://eslint.org):
 $ npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-unsubscribe`:
+Next, install `eslint-plugin-xupea`:
 
 ```
-$ npm install eslint-plugin-unsubscribe --save-dev
+$ npm install eslint-plugin-xupea --save-dev
 ```
 
 
