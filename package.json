@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-xupea",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "sub and unsub should be paired",
   "keywords": [
     "eslint",
@@ -12,6 +12,10 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xupea/eslint-plugin-xupea"
   },
   "dependencies": {
     "requireindex": "~1.1.0"
