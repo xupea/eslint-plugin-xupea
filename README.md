@@ -42,7 +42,7 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-* Fill in provided rules here
+* [xupea/unsubscribe](docs/rules/unsubscribe.md): 强制在componentWillUnmount方法中移除指定事件的监听器
 
 
 
