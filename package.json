@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-xupea",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "description": "sub and unsub should be paired",
   "keywords": [
     "eslint",
