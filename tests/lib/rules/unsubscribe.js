@@ -32,11 +32,29 @@ ruleTester.run("unsubscribe", rule, {
       });
     `,
     },
+    {
+      code: `
+      var PubSub = {subscribe: function(event){}, unsubscribe: function(event){}};
+      var Hello = createReactClass({
+        subscribe: function(event) {},
+        unsubscribe: function(event) {},
+        componentDidMount: function() {
+          this.subscribe('weather1');
+          PubSub.subscribe('weather2');
+        },
+        componentWillUnmount: function(event) {
+          this.unsubscribe('weather1');
+          PubSub.unsubscribe('weather2');
+        }
+      });
+    `,
+    },
   ],
 
   invalid: [
     {
       code: `
+        var PubSub = {subscribe: function(event){}, unsubscribe: function(event){}};
         var Hello = createReactClass({
           subscribe: function(event) {},
           on: function(event) {},
@@ -44,21 +62,24 @@ ruleTester.run("unsubscribe", rule, {
           addListener: function(event) {},
           addListeners: function() {},
           componentDidMount: function() {
-            this.subscribe('weather');
-            this.on('weather');
-            this.addEventListener('weather');
+            this.subscribe('weather1');
+            this.on('weather2');
+            this.addEventListener('weather3');
             this.addListeners();
+            PubSub.subscribe('weather4')
           }
         });
       `,
       errors: [{
-        message: 'Must unsubscribe weather in componentWillUnmount'
+        message: 'Must unsubscribe weather1 in componentWillUnmount'
       }, {
-        message: 'Must off weather in componentWillUnmount'
+        message: 'Must off weather2 in componentWillUnmount'
       }, {
-        message: 'Must removeEventListener weather in componentWillUnmount'
+        message: 'Must removeEventListener weather3 in componentWillUnmount'
       }, {
         message: 'Must removeListeners  in componentWillUnmount'
+      }, {
+        message: 'Must PubSub.unsubscribe weather4 in componentWillUnmount'
       }]
     }
   ],
