@@ -1,4 +1,4 @@
-# eslint-plugin-unsubscribe
+# eslint-plugin-xupea
 
 sub and unsub should be paired
 
