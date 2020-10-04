@@ -21,8 +21,8 @@ ruleTester.run("unsubscribe", rule, {
     {
       code: `
       var Hello = createReactClass({
-        subscribe: function(event) {},
-        unsubscribe: function(event) {},
+        subscribe: function(event) {return event},
+        unsubscribe: function(event) {return event},
         componentDidMount: function() {
           this.subscribe('weather')
         },
@@ -77,7 +77,7 @@ ruleTester.run("unsubscribe", rule, {
       }, {
         message: 'Must removeEventListener weather3 in componentWillUnmount'
       }, {
-        message: 'Must removeListeners  in componentWillUnmount'
+        message: 'Must removeListeners in componentWillUnmount'
       }, {
         message: 'Must PubSub.unsubscribe weather4 in componentWillUnmount'
       }]
